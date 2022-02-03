@@ -1,5 +1,4 @@
-
-const istitle=(ctx,next)=>{
+const isupdate=(ctx,next)=>{
     const title=ctx.request.body.title;
     if(title==undefined){
         return ctx.body={status:false,message:"title not found !"}
@@ -8,4 +7,4 @@ const istitle=(ctx,next)=>{
 
 }
 
-module.exports={istitle}
+module.exports={isupdate}

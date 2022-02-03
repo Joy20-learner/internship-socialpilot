@@ -4,4 +4,6 @@ const adddata=(title,description)=>mongoClient.db("store").collection("crud").in
 
 const finddata =(title)=> mongoClient.db("store").collection("crud").findOne({title:title})
 
-module.exports={adddata,finddata}
+const updatedata = (title,description) => mongoClient.db("store").collection("crud").updateOne({title:"Task 01"},{$set:{title:title,description:description}})
+
+module.exports={adddata,finddata,updatedata}

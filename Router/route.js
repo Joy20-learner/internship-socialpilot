@@ -2,9 +2,10 @@ const Router = require('koa-router');
 // const router = require('koa-router')
 
 const {createcrud,getcrud,deletecrud,updatecrud} = require('../controller/api');
-const { adddata, finddata } = require('../Database/query');
+const { adddata, finddata, updatedata } = require('../Database/query');
 const { save } = require('../index2');
 const { istitle } = require('../Validator/istitle');
+const { isupdate } = require('../Validator/update');
 
 
 const router = new Router({
@@ -24,6 +25,9 @@ router.post('/find',istitle,async ctx =>{
     // ctx.body = crud
 })
 
+router.post('/update',isupdate, async ctx =>{
+    return ctx.body={message: await updatedata(ctx.request.body.title,ctx.request.body.description)}
+})
 
 router.get('/:id', async ctx =>{
     const id = ctx.params.id

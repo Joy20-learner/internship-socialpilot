@@ -18,7 +18,7 @@ const getbyid = (id) =>{
 
 
 const update = (id,{title,description})=>{
-    const result = crud.replaceOne({_id:ObjectId(id)})
+    const result = crud.updateOne({_id:ObjectId(id)})
 }
 
 const removeById = id =>{
