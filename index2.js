@@ -3,7 +3,7 @@ const crud = require('./Database/db')
 const ObjectId = require('mongodb').ObjectId;
 
 const save = ({title,description}) => {
-    const result = crud.insertOne({title,description})
+    const result = crud.insertOne({username,email,password,title,description})
     // return result.toArray();
 }
 const getCrud = () =>{
