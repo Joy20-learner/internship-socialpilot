@@ -10,8 +10,9 @@ const {signin} = require('../Database/query');
 const {login}= require('../Database/query');
 const {isnull}= require('../Validator/isnull')
 const {emailverify}= require('../Validator/emailverify');
-const { isEmailindb } = require('../Validator/isemailindb');
+// const { isEmailindb } = require('../Validator/isemailindb');
 const { verifytokens } = require('../controller/verifytoken');
+const { createpostcontroller } = require('../controller/contcreatepost');
 
 const router = new Router({
     // prefix:'/crud'
@@ -59,7 +60,8 @@ router.post("/login",emailverify,isnull, logincontroller,async ctx=>{
 
 router.get('/verifytoken',verifytokens)
 
-router.get("/createpost",verifytokens, async ctx=>{
+
+router.get("/createpost",createpostcontroller,verifytokens, async ctx=>{
     return ctx.body={message: await create(ctx.request.body.title,ctx.request.body.description)}
 })
 
